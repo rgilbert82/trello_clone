@@ -1,0 +1,37 @@
+<input class="hidden_card_selector_input" data-card_id="{{id}}" data-list_id="{{listID}}" hidden />
+
+{{#if labels}}
+<div class="card_selector_labels">
+  {{#each labels}}
+  <div class="card_selector_label label_{{this}}"></div>
+  {{/each}}
+</div>
+{{/if}}
+
+<h3>{{title}}</h3>
+
+<div class="card_selector_icons">
+  {{#if dueDate}}
+  <div class="card_selector_icon card_selector_date_icon {{#if dueDateHighlighted}}highlighted_date{{/if}}">
+    {{#if dueDateHighlighted}}
+    <img height="12px" width="12px" src="../images/clock_icon_white.png" />
+    {{else}}
+    <img height="12px" width="12px" src="../images/clock_icon_gray.png" />
+    {{/if}}
+    <span>{{dueDate.date}}</span>
+  </div>
+  {{/if}}
+
+  {{#if activity}}
+  <div class="card_selector_icon card_selector_activity_icon">
+    <img height="12px" width="12px" src="../images/activity_icon_1.png" />
+  </div>
+  {{/if}}
+
+  {{#if comments}}
+  <div class="card_selector_icon card_selector_comments_icon">
+    <img height="12px" width="12px" src="../images/comment_icon.png" />
+    <span>{{comments.length}}</span>
+  </div>
+  {{/if}}
+</div>

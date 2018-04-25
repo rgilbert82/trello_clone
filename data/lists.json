@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "boardID": 1,
+    "position": 1,
+    "title": "Stuff to try",
+    "archived": false
+  }, {
+    "id": 2,
+    "boardID": 1,
+    "position": 2,
+    "title": "Tried it (another list)",
+    "archived": false
+  }, {
+    "id": 3,
+    "boardID": 2,
+    "position": 1,
+    "title": "List 3",
+    "archived": false
+  }, {
+    "id": 4,
+    "boardID": 2,
+    "position": 2,
+    "title": "Yet Another List",
+    "archived": false
+  }, {
+    "id": 5,
+    "boardID": 1,
+    "position": 3,
+    "title": "List 5",
+    "archived": false
+  }
+]

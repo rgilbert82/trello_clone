@@ -1,0 +1,51 @@
+include /_mixins
+
+doctype html
+meta(name='viewport', content='width=device-width, initial-scale=1')
+html
+  head
+    title= "Trello Clone"
+    +stylesheet_link_tag("application")
+    +javascript_include_tag("vendor/all")
+    +javascript_include_tag("handlebars_templates")
+  body
+    surface
+      #header
+        a(href="#", id="header_logo")
+        #header_boards_button(class="header_button")
+          a(href="#")
+            span="Boards"
+        #header_search(class="header_button")
+          input(type="text" autocomplete="off" id="header_search_input")
+          span
+          #header_search_results
+            h2="Search"
+            h4(id="search_no_results")="No Results..."
+            div(id="search_results_list")
+        #header_notifications(class="header_button")
+          a(href="#")
+            span
+        #header_username(class="header_button")
+          a(href="#")
+            span= user.initials
+            span= user.username
+        #header_add_board(class="header_button")
+          a(href="#")
+            span
+              .cross
+
+      #content
+        main
+          block content
+
+    +javascript_include_tag("application")
+    +javascript_include_tag("drag")
+    +javascript_include_tag("models/user", "models/card", "models/list", "models/board", "models/search_result", "models/activity_list")
+    +javascript_include_tag("collections/cards", "collections/lists", "collections/boards")
+    +javascript_include_tag("views/board_selection", "views/board_selector", "views/add_board", "views/board", "views/list", "views/add_list", "views/card", "views/card_window", "views/edit_move_card", "views/edit_copy_card", "views/edit_card_labels", "views/edit_card_due_date", "views/search_result", "views/create_board", "views/notifications", "views/menu", "views/list_options", "views/copy_list", "views/move_list", "views/move_all_cards", "views/archive_all_cards")
+    script(type="text/javascript").
+      App.user = new User(!{JSON.stringify(user)});
+      App.cards = new Cards(!{JSON.stringify(cards)});
+      App.lists = new Lists(!{JSON.stringify(lists)});
+      App.boards = new Boards(!{JSON.stringify(boards)});
+    +javascript_include_tag("router")
